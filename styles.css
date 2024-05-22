@@ -1,0 +1,175 @@
+body {
+  font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff; /* White container */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+  max-width: 800px; /* Wider container for better layout */
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333; /* Dark gray heading */
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600; /* Slightly bolder labels */
+  color: #555; /* Darker gray color for labels */
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.2s ease; /* Add transition for focus effect */
+}
+
+input:focus {
+  outline: none;
+  border-color: #80bdff; /* Blue border on focus */
+}
+
+button {
+  display: inline-block; /* Allow buttons to be side-by-side */
+  margin: 10px 5px 0 0; /* Add some margin around buttons */
+  padding: 12px;
+  background-color: #007bff; /* Blue button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.2s ease; /* Add transition for hover effect */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+canvas {
+  margin-top: 30px;
+  max-width: 100%;
+}
+
+/* Results Styling */
+#results {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Wrap to multiple rows if needed */
+  margin-top: 40px;
+  width: 100%;
+}
+
+.pillar-result {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  width: 280px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 20px; /* Add spacing between pillar results */
+}
+
+.pillar-result strong {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.pillar-result p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.pillar-result .percentage {
+  font-size: 2em;
+  font-weight: bold;
+  color: #007bff; 
+}
+
+/* Gap Analysis Chart */
+.chart-row {
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* Table Styling */
+#rankedLeversTable {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#rankedLeversTable th, 
+#rankedLeversTable td {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#rankedLeversTable th {
+  background-color: #f8f9fa; 
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#rankedLeversTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#insights {
+  margin-top: 40px;
+}
+
+#insights h3 {
+  margin-top: 30px;
+  font-size: 1.8em;
+  color: #333;
+}
+
+#insights ul {
+  list-style: disc;
+  padding-left: 25px;
+}
+
+#insights li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Step Styling */
+.step {
+  display: none; /* Hide all steps by default */
+}
+
+.step h2 {
+  margin-top: 0;
+}

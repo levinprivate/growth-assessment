@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Growth Levers Self-Assessment</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Growth Levers Self-Assessment</h1>
+    <form id="assessmentForm">
+      <div id="step1" class="step">
+        <h2>Step 1: Introduction</h2>
+        <p>This self-assessment will help you evaluate your business's performance across various growth levers. Please rate your current capabilities on a scale of 0 to 5, with 0 being non-existent and 5 being highly developed.</p>
+        <button type="button" id="nextStep1">Save and Continue</button>
+      </div>
+
+      <div id="step2" class="step" style="display: none;">
+        <h2>Pillar ONE - CONTENT MASTERY</h2>
+        <div class="form-group">
+          <label for="lever1_q1">How effective are you at creating content that provides valuable insights and addresses your audience's pain points and challenges? (0-5)</label>
+          <input type="number" id="lever1_q1" name="lever1_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever1_q2">Do you conduct research and gather data to inform your content strategy and ensure its relevance? (0-5)</label>
+          <input type="number" id="lever1_q2" name="lever1_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever1_q3">Does your content demonstrate a deep understanding of your industry and the needs of your target audience? (0-5)</label>
+          <input type="number" id="lever1_q3" name="lever1_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever2_q1">How consistently do you create and share high-value content that benefits your audience without expecting anything in return? (0-5)</label>
+          <input type="number" id="lever2_q1" name="lever2_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever2_q2">Does your content showcase your expertise and generosity, building trust and goodwill with potential clients? (0-5)</label>
+          <input type="number" id="lever2_q2" name="lever2_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever2_q3">Do you prioritize providing value and building relationships through your content over direct sales pitches? (0-5)</label>
+          <input type="number" id="lever2_q3" name="lever2_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever3_q1">Do you have a consistent and recognizable content format or style that sets you apart and makes you "known for something"? (0-5)</label>
+          <input type="number" id="lever3_q1" name="lever3_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever3_q2">Is your signature content engaging, informative, and easily adaptable to various platforms and channels? (0-5)</label>
+          <input type="number" id="lever3_q2" name="lever3_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever3_q3">Does your signature content contribute to building your brand identity and establishing thought leadership in your industry? (0-5)</label>
+          <input type="number" id="lever3_q3" name="lever3_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever4_q1">Do you offer valuable content offers (e.g., ebooks, templates, workshops) to capture leads and build relationships with potential clients? (0-5)</label>
+          <input type="number" id="lever4_q1" name="lever4_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever4_q2">Are your content offers aligned with your content pillars and targeted towards your ideal customer profile? (0-5)</label>
+          <input type="number" id="lever4_q2" name="lever4_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever4_q3">Do you have a system for tracking the performance and conversion rates of your content offers to optimize their effectiveness? (0-5)</label>
+          <input type="number" id="lever4_q3" name="lever4_q3" max="5" required class="lever-input">
+        </div>
+        <button type="button" id="prevStep2">Previous</button>
+        <button type="button" id="nextStep2">Save and Continue</button>
+      </div>
+
+      <div id="step3" class="step" style="display: none;">
+        <h2>Pillar 2: STRATEGY: Systems and Processes</h2>
+        <div class="form-group">
+          <label for="lever5_q1">How well-defined and optimized is your sales funnel, ensuring a smooth and efficient journey for leads from initial contact to closing the deal? (0-5)</label>
+          <input type="number" id="lever5_q1" name="lever5_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever6_q1">How effectively do you utilize CRM and marketing automation tools to streamline processes, manage data, and nurture leads, ensuring data accuracy and efficiency? (0-5)</label>
+          <input type="number" id="lever6_q1" name="lever6_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever7_q1">How effectively do your sales and marketing efforts work together to create a sustainable cycle of growth, with each function supporting and amplifying the other? (0-5)</label>
+          <input type="number" id="lever7_q1" name="lever7_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever8_q1">How effectively do your marketing campaigns capture attention, generate interest, and drive results? (0-5)</label>
+          <input type="number" id="lever8_q1" name="lever8_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever8_q2">Do your campaigns demonstrate creativity and innovation, setting you apart from competitors and resonating with your target audience? (0-5)</label>
+          <input type="number" id="lever8_q2" name="lever8_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever8_q3">Do you have a process for developing and executing impactful B2B marketing campaigns? (0-5)</label>
+          <input type="number" id="lever8_q3" name="lever8_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever9_q1">How effectively do you track, analyze, and utilize data to measure performance, gain insights, and make data-driven decisions for continuous improvement? (0-5)</label>
+          <input type="number" id="lever9_q1" name="lever9_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever10_q1">How effectively do you distribute your content across various channels to reach your target audience? (0-5)</label>
+          <input type="number" id="lever10_q1" name="lever10_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever10_q2">Do you utilize a mix of organic and paid promotion strategies to amplify your content's reach and visibility? (0-5)</label>
+          <input type="number" id="lever10_q2" name="lever10_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever10_q3">Are you actively engaging with your audience and building relationships through your content distribution channels? (0-5)</label>
+          <input type="number" id="lever10_q3" name="lever10_q3" max="5" required class="lever-input">
+        </div>
+
+        <button type="button" id="prevStep3">Previous</button>
+        <button type="button" id="nextStep3">Save and Continue</button>
+      </div>
+
+      <div id="step4" class="step" style="display: none;">
+        <h2>Pillar 3: Prospecting & Client Engagement (WHO)</h2>
+        <div class="form-group">
+          <label for="lever11_q1">Do you have a clear understanding of who your ideal clients are, their needs, and their challenges? (0-5)</label>
+          <input type="number" id="lever11_q1" name="lever11_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever11_q2">Can you concisely describe your ideal customer profile and its key characteristics? (0-5)</label>
+          <input type="number" id="lever11_q2" name="lever11_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever12_q1">How comfortable and effective are you at leading sales efforts and engaging with potential clients? (0-5)</label>
+          <input type="number" id="lever12_q1" name="lever12_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever12_q2">Do you have a structured sales process in place, and are you confident in your ability to close deals? (0-5)</label>
+          <input type="number" id="lever12_q2" name="lever12_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever12_q3">Do you embrace a consultative sales approach, focusing on building relationships and providing value to prospects? (0-5)</label>
+          <input type="number" id="lever12_q3" name="lever12_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever13_q1">To what extent do your leaders and key team members actively build their personal brands and showcase their expertise through content, social media, and other channels? (0-5)</label>
+          <input type="number" id="lever13_q1" name="lever13_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever13_q2">How comfortable are your leaders and team members with being vulnerable, sharing their personalities, and expressing their opinions, even if it means polarizing the audience? (0-5)</label>
+          <input type="number" id="lever13_q2" name="lever13_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever13_q3">How effectively do you utilize storytelling and personal anecdotes in your marketing and communication efforts to create a more human and relatable brand experience? (0-5)</label>
+          <input type="number" id="lever13_q3" name="lever13_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever14_q1">Do you have a clearly defined list of your top 100-500 dream clients, including key decision-makers and influencers within those organizations? (0-5)</label>
+          <input type="number" id="lever14_q1" name="lever14_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever14_q2">Is your Dream 100 list based on your ideal customer profile and aligned with your strategic growth objectives? (0-5)</label>
+          <input type="number" id="lever14_q2" name="lever14_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever14_q3">Do you regularly update and refine your Dream 100 list as your business evolves and new opportunities arise? (0-5)</label>
+          <input type="number" id="lever14_q3" name="lever14_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever15_q1">How well do you understand the biggest problems, objections, and desired outcomes of your ideal customer profile? (0-5)</label>
+          <input type="number" id="lever15_q1" name="lever15_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever15_q2">Can you articulate what your ideal clients are thinking but not saying, uncovering their hidden challenges and motivations? (0-5)</label>
+          <input type="number" id="lever15_q2" name="lever15_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever15_q3">Do you utilize your understanding of client challenges and aspirations to inform your content, messaging, and sales approach, demonstrating empathy and building trust? (0-5)</label>
+          <input type="number" id="lever15_q3" name="lever15_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever16_q1">Do you have a consistent and effective email outreach strategy for connecting with potential clients? (0-5)</label>
+          <input type="number" id="lever16_q1" name="lever16_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever16_q2">Are your outreach emails personalized, relevant, and value-driven? (0-5)</label>
+          <input type="number" id="lever16_q2" name="lever16_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever16_q3">Do you track the performance of your email outreach campaigns and make adjustments based on data and insights? (0-5)</label>
+          <input type="number" id="lever16_q3" name="lever16_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever17_q1">Are you actively building your network and connecting with potential clients on LinkedIn? (0-5)</label>
+          <input type="number" id="lever17_q1" name="lever17_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever17_q2">Do you regularly share valuable content and engage with your audience on LinkedIn to build visibility and thought leadership? (0-5)</label>
+          <input type="number" id="lever17_q2" name="lever17_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever17_q3">Do you actively seek opportunities to connect with and nurture relationships with your Dream 100 clients on LinkedIn? (0-5)</label>
+          <input type="number" id="lever17_q3" name="lever17_q3" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever18_q1">How effectively do you demonstrate your expertise and establish credibility within your industry? (0-5)</label>
+          <input type="number" id="lever18_q1" name="lever18_q1" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever18_q2">Do you have strong client testimonials and case studies that showcase your successful track record? (0-5)</label>
+          <input type="number" id="lever18_q2" name="lever18_q2" max="5" required class="lever-input">
+        </div>
+        <div class="form-group">
+          <label for="lever18_q3">Are you actively involved in industry events, publications, or other initiatives that build your reputation and authority? (0-5)</label>
+          <input type="number" id="lever18_q3" name="lever18_q3" max="5" required class="lever-input">
+        </div>
+
+        <button type="button" id="prevStep4">Previous</button>
+        <button type="button" id="nextStep4">Save and Continue</button>
+      </div>
+
+      <div id="step5" class="step" style="display: none;">
+        <h2>Step 5: Confirmation</h2>
+        <p>Please review your answers before submitting.</p>
+        <button type="button" id="prevStep5">Previous</button>
+        <button type="submit">Generate Chart</button>
+      </div>
+    </form>
+
+    <canvas id="assessmentChart" width="400" height="400"></canvas>
+    <div id="results"></div>
+
+    <div class="chart-row">
+      <canvas id="gapAnalysisChart" width="400" height="400"></canvas>
+    </div>
+
+    <div id="insights"></div> 
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
