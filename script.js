@@ -474,24 +474,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 function sendDataToGoogleSheet(leverAverages, pillarScores) {
-  // Get the web app URL (replace with your actual URL)
-  const webAppUrl = 'https://script.google.com/macros/s/AKfycbzg7La1ofB6GgCrjuvDrwoEk16nEs3l-6zDaACPaNer1d50vECOakEBpdOm9cUL3mJx/exec'; 
+   // Get the web app URL (replace with your actual URL)
+   const webAppUrl = 'https://script.google.com/macros/s/AKfycbzg7La1ofB6GgCrjuvDrwoEk16nEs3l-6zDaACPaNer1d50vECOakEBpdOm9cUL3mJx/exec'; 
 
-  // Prepare the data to send
-  const data = {
-    leverAverages: leverAverages,
-    pillarScores: pillarScores
-  };
+   // Construct the URL with parameters (for GET request)
+   const url = `${webAppUrl}?leverAverages=${encodeURIComponent(JSON.stringify(leverAverages))}&pillarScores=${encodeURIComponent(JSON.stringify(pillarScores))}`;
 
-  // Send data to the Google Apps Script web app
-  fetch(webAppUrl, {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  .then(response => response.text())
-  .then(text => console.log(text)) // Log success message
-  .catch(error => console.error('Error:', error));
-}
+   // Send GET request (changed from POST)
+   fetch(url, {
+     method: 'GET', // Make sure this is set to GET
+     headers: {
+       'Content-Type': 'application/json',
+     },
+   })
+   .then(response => response.text())
+   .then(text => console.log(text)) // Log success message
+   .catch(error => console.error('Error:', error));
+ }
