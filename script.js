@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function sendDataToGoogleSheet(leverAverages, pillarScores) {
   // Get the web app URL (replace with your actual URL)
-  const webAppUrl = 'https://script.google.com/macros/s/AKfycbxw1wm3aUtmhi5ylh_m9zkAKDC2mLJRynADi7UcFmCA1h4iNyEgFUrnjV87tZvCyXe8/exec'; 
+  const webAppUrl = 'https://script.google.com/macros/s/AKfycbzg7La1ofB6GgCrjuvDrwoEk16nEs3l-6zDaACPaNer1d50vECOakEBpdOm9cUL3mJx/exec'; 
 
   // Prepare the data to send
   const data = {
