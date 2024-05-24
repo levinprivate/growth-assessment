@@ -182,24 +182,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
   e.preventDefault();
   deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
-  // Collect form data
+    // Collect form data
   const formData = new FormData(e.target);
   const data = {};
   formData.forEach((value, key) => {
     data[key] = value;
   });
 
-  // Send form data to Google Apps Script
+  // Send form data to Google Apps Script as plain text
   fetch('https://script.google.com/macros/s/AKfycbz8XyktOKsyOhWsjRHvk0oWAZraRs4G88BsY1ZZbQRn2WbX4SfJdcHauzPoEPk-GcmX/exec', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'text/plain'
     },
     body: JSON.stringify(data)
   })
-  .then(response => response.json())
+  .then(response => response.text())  // Parsing as text because we expect plain text
   .then(result => {
-    if (result.result === "success") {
+    const parsedResult = JSON.parse(result);
+    if (parsedResult.result === "success") {
       updateChartAndResults(levers, pillars);
     } else {
       alert('There was an error submitting the form.');
