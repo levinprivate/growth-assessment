@@ -179,11 +179,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // Form submission
   document.getElementById('assessmentForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    deleteCookie('assessmentAnswers'); // Clear cookies after submission
+  e.preventDefault();
+  deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
-
- // Collect form data
+  // Collect form data
   const formData = new FormData(e.target);
   const data = {};
   formData.forEach((value, key) => {
@@ -210,10 +209,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.error('Error:', error);
     alert('There was an error submitting the form.');
   });
-
-    updateChartAndResults(levers, pillars);
-  });
-
+});
 
 
 
