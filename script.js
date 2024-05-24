@@ -178,7 +178,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
   // Form submission
- // Form submission
 document.getElementById('assessmentForm').addEventListener('submit', function(e) {
   e.preventDefault();
   deleteCookie('assessmentAnswers'); // Clear cookies after submission
@@ -190,20 +189,29 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     data[key] = value;
   });
 
-  // Send form data to Google Apps Script as plain text
-  fetch('https://script.google.com/macros/s/AKfycbxEPJj65dk5KE4k-aFdtmeOjOwikNV0SqTTL8CYzGsDBiZBgpRU7G5Ql-6D7Eeg-pln/exec', {
+  // Sheety API endpoint
+  const sheetyEndpoint = 'https://api.sheety.co/9efbf5ada9d8136d1902b7ebe132dec2/sheetyAssessment/sheet1'; // Replace with your Sheety endpoint
+
+  // Send form data to Sheety
+  fetch(sheetyEndpoint, {
     method: 'POST',
     headers: {
-      'Content-Type': 'text/plain'
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify({ sheet1: data }) // Adjust if your Sheety project has a different structure
   })
-  .then(response => response.text())  // Parsing as text because we expect plain text
+  .then(response => response.json())
   .then(result => {
-    const parsedResult = JSON.parse(result);
-    if (parsedResult.result === "success") {
+    if (result && result.sheet1) {
+      // Assuming the result from Sheety API contains the submitted data
       updateChartAndResults(levers, pillars);
+    } else {
+      alert('Form submission failed. Please try again.');
     }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('There was an error submitting the form');
   });
 });
 
