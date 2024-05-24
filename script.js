@@ -202,7 +202,7 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ sheet1: data }) // Adjust if your Sheety project has a different structure
+    body: JSON.stringify({ sheet1: data }) // Corrected payload structure
   })
   .then(response => {
     console.log('Response Status:', response.status); // Debugging: Check response status
