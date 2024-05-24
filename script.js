@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
   // Send form data to Google Apps Script as plain text
-  fetch('https://script.google.com/macros/s/AKfycbz8XyktOKsyOhWsjRHvk0oWAZraRs4G88BsY1ZZbQRn2WbX4SfJdcHauzPoEPk-GcmX/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxEPJj65dk5KE4k-aFdtmeOjOwikNV0SqTTL8CYzGsDBiZBgpRU7G5Ql-6D7Eeg-pln/exec', {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain'
