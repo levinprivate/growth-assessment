@@ -191,12 +191,6 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   });
 
 
-  const leverInputs = document.querySelectorAll('.lever-input');
-    leverInputs.forEach(input => {
-        input.value = 0; // Set the default value as a string
-    });
-
-
 
   // Add date and time of submission
   const now = new Date();
