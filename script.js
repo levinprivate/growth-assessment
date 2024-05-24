@@ -189,8 +189,12 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     data[key] = value;
   });
 
+  console.log('Form Data:', data); // Debugging: Check collected form data
+
   // Sheety API endpoint
   const sheetyEndpoint = 'https://api.sheety.co/9efbf5ada9d8136d1902b7ebe132dec2/sheetyAssessment/sheet1'; // Replace with your Sheety endpoint
+
+  console.log('Sheety Endpoint:', sheetyEndpoint); // Debugging: Check Sheety endpoint URL
 
   // Send form data to Sheety
   fetch(sheetyEndpoint, {
@@ -200,8 +204,15 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     },
     body: JSON.stringify({ sheet1: data }) // Adjust if your Sheety project has a different structure
   })
-  .then(response => response.json())
+  .then(response => {
+    console.log('Response Status:', response.status); // Debugging: Check response status
+    if (!response.ok) {
+      return response.text().then(text => { throw new Error(text) });
+    }
+    return response.json();
+  })
   .then(result => {
+    console.log('Result:', result); // Debugging: Check result
     if (result && result.sheet1) {
       // Assuming the result from Sheety API contains the submitted data
       updateChartAndResults(levers, pillars);
@@ -210,8 +221,8 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     }
   })
   .catch(error => {
-    console.error('Error:', error);
-    alert('There was an error submitting the form');
+    console.error('Error:', error); // Debugging: Check error
+    alert('There was an error submitting the form: ' + error.message);
   });
 });
 
