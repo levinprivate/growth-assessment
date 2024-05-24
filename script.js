@@ -108,6 +108,9 @@ function deleteCookie(name) {
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', (event) => {
 
+  const leverInputs = document.querySelectorAll('.lever-input');
+
+
   // Load answers from cookies when the page loads
   loadAnswersFromCookies();
 
@@ -180,7 +183,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
  // Function to Validate a Single Input Field
-function validateInput(input) {
+
+  // Event listeners for validation
+  leverInputs.forEach(input => {
+    // Validate on input
+    input.addEventListener('input', () => { 
+      validateInput(input); 
+    });
+
+    // Validate on blur
+    input.addEventListener('blur', () => {
+      validateInput(input);
+    });
+  });
+
+
+  function validateInput(input) {
   const errorMessage = input.nextElementSibling;
 
   if (input.value && !input.validity.valid) { 
@@ -191,17 +209,6 @@ function validateInput(input) {
   }
 }
 
-leverInputs.forEach(input => {
-  // Validate on input:
-  input.addEventListener('input', () => { 
-    validateInput(input); 
-  });
-
-  // Validate on blur:
-  input.addEventListener('blur', () => {
-    validateInput(input);
-  });
-});
 
 
   // Form submission
