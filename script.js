@@ -183,16 +183,20 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
 
-  const leverInputs = document.querySelectorAll('.lever-input'); 
-  for (const input of leverInputs) {
-    const inputValue = parseInt(input.value, 10); // Get value as a number
+   const leverInputs = document.querySelectorAll('.lever-input');
 
-    if (isNaN(inputValue) || inputValue < 0 || inputValue > 5) {
-      alert('Please enter a number between 0 and 5 for all assessment questions.');
-      return; // Stop form submission if invalid input is found
-    } 
-  }
+  leverInputs.forEach(input => {
+    input.addEventListener('input', () => { 
+      const errorMessage = input.nextElementSibling; // Get the error message span
 
+      if (!input.validity.valid) {
+        errorMessage.textContent = 'Please enter a number between 0 and 5.';
+        errorMessage.style.display = 'inline'; // Show error message
+      } else {
+        errorMessage.style.display = 'none';  // Hide error message
+      }
+    });
+  });
 
 
   // Collect form data

@@ -231,3 +231,33 @@ input[type="number"] {
 /* Rating Scale - REMOVED 
    (The previous implementation was incorrect and not necessary)
 */
+
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+input[type="number"] {
+  width: 4em; 
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  display: none; /* Hidden by default */
+  margin-left: 10px;
+}
