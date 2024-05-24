@@ -182,6 +182,19 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   e.preventDefault();
   deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
+
+  const leverInputs = document.querySelectorAll('.lever-input'); 
+  for (const input of leverInputs) {
+    const inputValue = parseInt(input.value, 10); // Get value as a number
+
+    if (isNaN(inputValue) || inputValue < 0 || inputValue > 5) {
+      alert('Please enter a number between 0 and 5 for all assessment questions.');
+      return; // Stop form submission if invalid input is found
+    } 
+  }
+
+
+
   // Collect form data
   const formData = new FormData(e.target);
   const data = {};
