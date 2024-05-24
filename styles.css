@@ -9,6 +9,19 @@ body {
   padding: 20px;
 }
 
+.lever-input:invalid { /* Target invalid input fields */
+  border: 2px solid red; /* Add a red border */
+}
+
+.error {
+  color: red;
+  display: none; /* Hide by default */
+}
+
+.lever-input:invalid + .error { 
+  display: inline; /* Show when the input is invalid */
+}
+
 .container {
   background-color: #fff; /* White container */
   padding: 30px;
