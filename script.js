@@ -191,22 +191,28 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   });
 
 
-    const leverInputs = document.querySelectorAll('.lever-input');
+  function validateInput(input) {
+    const errorMessage = input.nextElementSibling;
 
+    if (input.value === '' || !input.validity.valid) {
+      errorMessage.textContent = 'Please enter a number between 0 and 5.';
+      errorMessage.style.display = 'inline';
+    } else {
+      errorMessage.style.display = 'none';
+    }
+  }
+
+
+ const leverInputs = document.querySelectorAll('.lever-input');
   leverInputs.forEach(input => {
-    input.addEventListener('input', () => {
-      const errorMessage = input.nextElementSibling;
+    // Validate on page load:
+    validateInput(input); // Call the validation function immediately 
 
-      // Check if the field is empty OR invalid
-      if (input.value === '' || !input.validity.valid) {
-        errorMessage.textContent = 'Please enter a number between 0 and 5.';
-        errorMessage.style.display = 'inline'; 
-      } else {
-        errorMessage.style.display = 'none';
-      }
+    // Validate on input:
+    input.addEventListener('input', () => { 
+      validateInput(input); 
     });
   });
-
 
 
   // Add date and time of submission
