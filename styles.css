@@ -49,9 +49,9 @@ h1 {
 
 label {
   display: block;
-  font-weight: 600; /* Slightly bolder labels */
+  font-weight: 400; /* Slightly bolder labels */
   color: #555; /* Darker gray color for labels */
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 input {
