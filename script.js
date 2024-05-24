@@ -180,29 +180,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
  // Function to Validate a Single Input Field
-  function validateInput(input) {
-    const errorMessage = input.nextElementSibling;
+function validateInput(input) {
+  const errorMessage = input.nextElementSibling;
 
-     if (!input.value || !input.validity.valid) { 
-      errorMessage.textContent = 'Please enter a number between 0 and 5.';
-      errorMessage.style.display = 'inline';
-    } else {
-      errorMessage.style.display = 'none';
-    }
+  if (input.value && !input.validity.valid) { 
+    errorMessage.textContent = 'Please enter a number between 0 and 5.';
+    errorMessage.style.display = 'inline';
+  } else {
+    errorMessage.style.display = 'none';
   }
+}
 
-  // Input Validation (on page load and on input)
-  const leverInputs = document.querySelectorAll('.lever-input');
-  leverInputs.forEach(input => {
-    // Validate on page load:
-    validateInput(input); // Call the validation function immediately 
-
-    // Validate on input:
-    input.addEventListener('input', () => { 
-      validateInput(input); 
-    });
+leverInputs.forEach(input => {
+  // Validate on input:
+  input.addEventListener('input', () => { 
+    validateInput(input); 
   });
 
+  // Validate on blur:
+  input.addEventListener('blur', () => {
+    validateInput(input);
+  });
+});
 
 
   // Form submission
