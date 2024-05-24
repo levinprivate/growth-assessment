@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function validateInput(input) {
     const errorMessage = input.nextElementSibling;
 
-    if (input.value === '' || !input.validity.valid) {
+     if (!input.value || !input.validity.valid) { 
       errorMessage.textContent = 'Please enter a number between 0 and 5.';
       errorMessage.style.display = 'inline';
     } else {
