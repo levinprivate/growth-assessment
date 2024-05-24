@@ -186,35 +186,37 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   const formData = new FormData(e.target);
   const data = {};
   formData.forEach((value, key) => {
+    // Use the keys as they are without modification
     data[key] = value;
   });
 
   console.log('Form Data:', data); // Debugging: Check collected form data
 
-  // Sheety API endpoint
-  const sheetyEndpoint = 'https://api.sheety.co/9efbf5ada9d8136d1902b7ebe132dec2/sheetyAssessment/sheet1'; // Replace with your Sheety endpoint
+  // SheetDB API endpoint
+  const sheetdbEndpoint = 'https://sheetdb.io/api/v1/srppjshbstzpm';
 
-  console.log('Sheety Endpoint:', sheetyEndpoint); // Debugging: Check Sheety endpoint URL
+  console.log('SheetDB Endpoint:', sheetdbEndpoint); // Debugging: Check SheetDB endpoint URL
 
-  // Send form data to Sheety
-  fetch(sheetyEndpoint, {
+  // Payload
+  const payload = { data: data };
+  console.log('Payload:', payload); // Debugging: Check payload structure
+
+  // Send form data to SheetDB
+  fetch(sheetdbEndpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ sheet1: data }) // Corrected payload structure
+    body: JSON.stringify(payload) // Corrected payload structure
   })
   .then(response => {
     console.log('Response Status:', response.status); // Debugging: Check response status
-    if (!response.ok) {
-      return response.text().then(text => { throw new Error(text) });
-    }
-    return response.json();
+    return response.json().then(data => ({ status: response.status, body: data }));
   })
   .then(result => {
-    console.log('Result:', result); // Debugging: Check result
-    if (result && result.sheet1) {
-      // Assuming the result from Sheety API contains the submitted data
+    console.log('Full Response:', result); // Debugging: Check full response
+    if (result.status === 201 && result.body) {
+      // Assuming the result from SheetDB API contains the submitted data
       updateChartAndResults(levers, pillars);
     } else {
       alert('Form submission failed. Please try again.');
@@ -225,7 +227,6 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     alert('There was an error submitting the form: ' + error.message);
   });
 });
-
 
 
 
