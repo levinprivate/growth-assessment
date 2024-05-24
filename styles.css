@@ -9,6 +9,14 @@ body {
   padding: 20px;
 }
 
+
+
+input[type="number"]::placeholder {
+  color: #999;       /* Set the placeholder text color (light gray) */
+  text-align: center; /* Center the placeholder text */
+}
+
+
 .lever-input:invalid { /* Target invalid input fields */
   border: 2px solid red; /* Add a red border */
 }
