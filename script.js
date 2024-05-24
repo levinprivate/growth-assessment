@@ -180,27 +180,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Form submission
  document.getElementById('assessmentForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
+  // Collect form data
   const formData = new FormData(e.target);
   const data = {};
   formData.forEach((value, key) => {
     data[key] = value;
   });
 
+  // Send form data to Google Apps Script as plain text
   fetch('https://script.google.com/macros/s/AKfycbxEPJj65dk5KE4k-aFdtmeOjOwikNV0SqTTL8CYzGsDBiZBgpRU7G5Ql-6D7Eeg-pln/exec', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'text/plain'
     },
     body: JSON.stringify(data)
   })
-  .then(response => response.json())
+  .then(response => response.text())  // Parsing as text because we expect plain text
   .then(result => {
-    if (result.result === "success") {
-      document.getElementById('results').innerText = `Form submitted successfully.`;
+    const parsedResult = JSON.parse(result);
+    if (parsedResult.result === "success") {
+      updateChartAndResults(levers, pillars);
+    } else {
+      alert(`There was an error submitting the form. Version: ${parsedResult.version}`);
     }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert(`There was an error submitting the form. Version: unknown`);
   });
 });
+
 
 
 
