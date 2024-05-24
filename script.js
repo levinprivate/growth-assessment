@@ -191,6 +191,23 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   });
 
 
+    const leverInputs = document.querySelectorAll('.lever-input');
+
+  leverInputs.forEach(input => {
+    input.addEventListener('input', () => {
+      const errorMessage = input.nextElementSibling;
+
+      // Check if the field is empty OR invalid
+      if (input.value === '' || !input.validity.valid) {
+        errorMessage.textContent = 'Please enter a number between 0 and 5.';
+        errorMessage.style.display = 'inline'; 
+      } else {
+        errorMessage.style.display = 'none';
+      }
+    });
+  });
+
+
 
   // Add date and time of submission
   const now = new Date();
@@ -247,7 +264,7 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
       }
 
       for (let i = startIndex; i < startIndex + lever.questions; i++) {
-        const score = parseFloat(document.querySelectorAll('.lever-input')[i].value);
+         const score = parseFloat(document.querySelectorAll('.lever-input')[i].value) || 0; // <-- Key Change Here
 
         if (!isNaN(score) && score >= 0 && score <= 5) {
           leverTotal += score;

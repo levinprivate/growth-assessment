@@ -13,7 +13,7 @@ body {
 
 input[type="number"]::placeholder {
   color: #999;       /* Set the placeholder text color (light gray) */
-  text-align: center; /* Center the placeholder text */
+  text-align: left; /* Center the placeholder text */
 }
 
 
