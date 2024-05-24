@@ -188,34 +188,31 @@ canvas {
   display: none; /* Hide all steps by default */
 }
 
-.step h2 {
-  margin-top: 0;
-}
-
-
-
 
 .step h2 {
-  font-size: 2em; /* Make pillar titles larger */
-  color: #333;  /* Dark gray for titles */
-  margin-bottom: 20px; 
+  font-size: 2em; 
+  color: #333;
+  margin-bottom: 20px;
 }
 
 /* Question Styling */
 .form-group {
-  margin-bottom: 25px; /* More spacing between questions */
-  position: relative; /* To position the rating scale */
+  margin-bottom: 25px; 
+  display: flex;        /* Use flexbox for better alignment */
+  align-items: center;  /* Align items vertically */
 }
 
 label {
   display: block;
-  font-weight: 500; /* Slightly less bold */
-  color: #444; /* Darker gray */
-  margin-bottom: 10px; 
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0;     /* Remove extra margin */
+  margin-right: 20px;   /* Add spacing between label and input */
 }
 
-input[type="number"] {
-  width: 60px; /* Adjust width as needed */
+/* Input Field Styling */
+input[type="number"] { 
+  width: 4em;          /* Use 'em' for a more appropriate width */
   padding: 8px;
   border: 1px solid #ced4da;
   border-radius: 4px;
@@ -223,27 +220,14 @@ input[type="number"] {
   transition: border-color 0.2s ease; 
 }
 
-/* Rating Scale */
-.rating-scale {
-  position: absolute;
-  top: 50%;
-  right: 10px;  /* Adjust position as needed */
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
+.lever-input:invalid {
+  border: 2px solid red; 
 }
 
-.rating-scale span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ddd; /* Light gray for unselected */
-  margin-right: 5px;
+.lever-input:not([value='']):invalid { /* Apply red border only when invalid and not empty */
+  border: 2px solid red; 
 }
 
-.rating-scale input:hover ~ .rating-scale span, /* Highlight on hover */
-.rating-scale input:focus ~ .rating-scale span,
-.rating-scale input:checked ~ .rating-scale span {
-  background-color: #ffc107; /* Yellow for selected */
-}
+/* Rating Scale - REMOVED 
+   (The previous implementation was incorrect and not necessary)
+*/
