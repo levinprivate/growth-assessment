@@ -13,6 +13,11 @@ body {
   border: 2px solid red; /* Add a red border */
 }
 
+.lever-input:not(:placeholder-shown):invalid { /* Target invalid fields ONLY if they have a value */
+  border: 2px solid red; 
+}
+
+
 .error {
   color: red;
   display: none; /* Hide by default */
