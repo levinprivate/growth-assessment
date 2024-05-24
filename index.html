@@ -217,9 +217,20 @@
         <button type="button" id="nextStep4">Save and Continue</button>
       </div>
 
-      <div id="step5" class="step" style="display: none;">
+<div id="step5" class="step" style="display: none;">
         <h2>Step 5: Confirmation</h2>
         <p>Please review your answers before submitting.</p>
+        
+        <div class="form-group">
+          <label for="businessEmail">Business Email:</label>
+          <input type="email" id="businessEmail" name="businessEmail" required>
+        </div>
+
+        <div class="form-group">
+          <label for="jobTitle">Job Title:</label>
+          <input type="text" id="jobTitle" name="jobTitle" required>
+        </div>
+
         <button type="button" id="prevStep5">Previous</button>
         <button type="submit">Generate Chart</button>
       </div>
