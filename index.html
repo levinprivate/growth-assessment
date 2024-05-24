@@ -22,6 +22,7 @@
         <div class="form-group">
           <label for="lever1_q1">How effective are you at creating content that provides valuable insights and addresses your audience's pain points and challenges? (0-5)</label>
           <input type="number" id="lever1_q1" name="lever1_q1" max="5" class="lever-input" pattern="[0-5]" required>
+          
           <span class="error">Please enter a number between 0 and 5.</span>
         </div>
         <div class="form-group">
@@ -282,17 +283,13 @@
     </form>
 
     <canvas id="assessmentChart" width="400" height="400"></canvas>
-
-    <!-- Results Section -->
-    <div id="results"></div> 
+    <div id="results"></div>
 
     <div class="chart-row">
       <canvas id="gapAnalysisChart" width="400" height="400"></canvas>
     </div>
 
-    <!-- Insights Section -->
     <div id="insights"></div> 
-
   </div>
   <script src="script.js"></script>
 </body>
