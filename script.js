@@ -182,62 +182,39 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
   e.preventDefault();
   deleteCookie('assessmentAnswers'); // Clear cookies after submission
 
-
-   const leverInputs = document.querySelectorAll('.lever-input');
-
-  leverInputs.forEach(input => {
-    input.addEventListener('input', () => { 
-      const errorMessage = input.nextElementSibling; // Get the error message span
-
-      if (!input.validity.valid) {
-        errorMessage.textContent = 'Please enter a number between 0 and 5.';
-        errorMessage.style.display = 'inline'; // Show error message
-      } else {
-        errorMessage.style.display = 'none';  // Hide error message
-      }
-    });
-  });
-
-
   // Collect form data
   const formData = new FormData(e.target);
   const data = {};
   formData.forEach((value, key) => {
-    // Use the keys as they are without modification
     data[key] = value;
   });
 
-  // Add date and time of submission
-  const now = new Date();
-  data['submissionDate'] = now.toISOString();
-
   console.log('Form Data:', data); // Debugging: Check collected form data
 
-  // SheetDB API endpoint
-  const sheetdbEndpoint = 'https://sheetdb.io/api/v1/srppjshbstzpm';
+  // Sheety API endpoint
+  const sheetyEndpoint = 'https://api.sheety.co/9efbf5ada9d8136d1902b7ebe132dec2/sheetyAssessment/sheet1'; // Replace with your Sheety endpoint
 
-  console.log('SheetDB Endpoint:', sheetdbEndpoint); // Debugging: Check SheetDB endpoint URL
+  console.log('Sheety Endpoint:', sheetyEndpoint); // Debugging: Check Sheety endpoint URL
 
-  // Payload
-  const payload = { data: data };
-  console.log('Payload:', payload); // Debugging: Check payload structure
-
-  // Send form data to SheetDB
-  fetch(sheetdbEndpoint, {
+  // Send form data to Sheety
+  fetch(sheetyEndpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(payload) // Corrected payload structure
+    body: JSON.stringify({ sheet1: data }) // Corrected payload structure
   })
   .then(response => {
     console.log('Response Status:', response.status); // Debugging: Check response status
-    return response.json().then(data => ({ status: response.status, body: data }));
+    if (!response.ok) {
+      return response.text().then(text => { throw new Error(text) });
+    }
+    return response.json();
   })
   .then(result => {
-    console.log('Full Response:', result); // Debugging: Check full response
-    if (result.status === 201 && result.body) {
-      // Assuming the result from SheetDB API contains the submitted data
+    console.log('Result:', result); // Debugging: Check result
+    if (result && result.sheet1) {
+      // Assuming the result from Sheety API contains the submitted data
       updateChartAndResults(levers, pillars);
     } else {
       alert('Form submission failed. Please try again.');
@@ -248,6 +225,7 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     alert('There was an error submitting the form: ' + error.message);
   });
 });
+
 
 
 
