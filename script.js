@@ -177,6 +177,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
     currentStep = 4;
   });
 
+
+
+ // Function to Validate a Single Input Field
+  function validateInput(input) {
+    const errorMessage = input.nextElementSibling;
+
+    if (input.value === '' || !input.validity.valid) {
+      errorMessage.textContent = 'Please enter a number between 0 and 5.';
+      errorMessage.style.display = 'inline';
+    } else {
+      errorMessage.style.display = 'none';
+    }
+  }
+
+  // Input Validation (on page load and on input)
+  const leverInputs = document.querySelectorAll('.lever-input');
+  leverInputs.forEach(input => {
+    // Validate on page load:
+    validateInput(input); // Call the validation function immediately 
+
+    // Validate on input:
+    input.addEventListener('input', () => { 
+      validateInput(input); 
+    });
+  });
+
+
+
   // Form submission
 document.getElementById('assessmentForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -189,31 +217,6 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     // Use the keys as they are without modification
     data[key] = value;
   });
-
-
-  function validateInput(input) {
-    const errorMessage = input.nextElementSibling;
-
-    if (input.value === '' || !input.validity.valid) {
-      errorMessage.textContent = 'Please enter a number between 0 and 5.';
-      errorMessage.style.display = 'inline';
-    } else {
-      errorMessage.style.display = 'none';
-    }
-  }
-
-
- const leverInputs = document.querySelectorAll('.lever-input');
-  leverInputs.forEach(input => {
-    // Validate on page load:
-    validateInput(input); // Call the validation function immediately 
-
-    // Validate on input:
-    input.addEventListener('input', () => { 
-      validateInput(input); 
-    });
-  });
-
 
   // Add date and time of submission
   const now = new Date();
@@ -543,6 +546,3 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     }
   }
 }); 
-
-
-
