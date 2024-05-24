@@ -190,6 +190,10 @@ document.getElementById('assessmentForm').addEventListener('submit', function(e)
     data[key] = value;
   });
 
+  // Add date and time of submission
+  const now = new Date();
+  data['submissionDate'] = now.toISOString();
+
   console.log('Form Data:', data); // Debugging: Check collected form data
 
   // SheetDB API endpoint
