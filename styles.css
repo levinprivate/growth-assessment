@@ -25,14 +25,17 @@ input[type="number"]::placeholder {
   border: 2px solid red; 
 }
 
-
 .error {
   color: red;
   display: none; /* Hide by default */
 }
 
-.lever-input:invalid + .error { 
+input:invalid + .error {
   display: inline; /* Show when the input is invalid */
+}
+
+input:valid + .error {
+  display: none; /* Hide when the input is valid */
 }
 
 .container {
